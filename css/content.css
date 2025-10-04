@@ -1,0 +1,97 @@
+ body {
+     background: #e9e4d8 url("https://www.transparenttextures.com/patterns/aged-paper.png");
+     font-family: 'MedievalSharp', cursive;
+     color: #3e2f1c;
+ }
+
+ .ancient-container {
+     max-width: 1000px;
+     margin: auto;
+ }
+
+ .ancient-note {
+     display: flex;
+     align-items: flex-start;
+     gap: 25px;
+     background: #fdfaf3 url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+     border: 2px solid #d4af37;
+     border-radius: 12px;
+     padding: 35px 40px;
+     margin: 40px auto;
+     font-size: 18px;
+     line-height: 1.8;
+     position: relative;
+     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25),
+         inset 0 0 40px rgba(212, 175, 55, 0.15);
+ }
+
+ /* Decorative golden corners */
+ .ancient-note::before,
+ .ancient-note::after {
+     content: "";
+     position: absolute;
+     width: 30px;
+     height: 30px;
+     border: 3px solid #d4af37;
+ }
+
+ .ancient-note::before {
+     top: 10px;
+     left: 10px;
+     border-right: none;
+     border-bottom: none;
+ }
+
+ .ancient-note::after {
+     bottom: 10px;
+     right: 10px;
+     border-left: none;
+     border-top: none;
+ }
+
+ /* Left-side image */
+ .ancient-note img {
+     flex: 0 0 300px;
+     max-width: 300px;
+     border-radius: 10px;
+     border: 3px solid #d4af37;
+     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+     object-fit: cover;
+ }
+
+ /* Right-side text */
+ .ancient-text {
+     flex: 1;
+ }
+
+ .ancient-text h2 {
+     font-size: 28px;
+     margin-bottom: 15px;
+     color: #5c4521;
+     border-bottom: 2px solid rgba(212, 175, 55, 0.7);
+     display: inline-block;
+     padding-bottom: 5px;
+ }
+
+ .ancient-text p {
+     margin: 15px 0;
+     text-align: justify;
+ }
+
+ .ancient-divider {
+     margin: 25px 0;
+     border-top: 1px dashed rgba(92, 69, 33, 0.4);
+ }
+
+ /* Responsive stack on small screens */
+ @media (max-width: 768px) {
+     .ancient-note {
+         flex-direction: column;
+         text-align: center;
+     }
+
+     .ancient-note img {
+         max-width: 100%;
+         margin-bottom: 20px;
+     }
+ }

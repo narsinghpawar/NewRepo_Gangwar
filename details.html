@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hazrat Multani Baba Gangwar - Details</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Header/Footer CSS -->
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/mirzaaigrahandetails.css">
+    <link rel="stylesheet" href="css/socialMediaIcons.css">
+    <style>
+        body {
+            background: #fdf6e3;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <div id="header"></div>
+    <div id="socialMediaIcons"></div>
+    <!-- Cards Section -->
+    <div id="cards-container" class="ancient-container">
+        <div class="ancient-note">
+            <img src="" alt="Detail Image" id="detail-img">
+            <div class="ancient-text">
+                <div class="detail-text">
+                    <h2 id="detail-title"></h2>
+                    <p id="detail-info"></p>
+                </div>
+
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Footer -->
+    <div id="footer"></div>
+    <!-- Background Sufi Music -->
+    <!-- <audio id="sufi-music" autoplay loop>
+        <source src="/music/StockTune-Echoes Beneath The Stars_1759082693.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio> -->
+    <script src="/js/loadHeaderFooter.js"></script>
+    <script src="js/music.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const card = JSON.parse(localStorage.getItem('selectedCard'));
+            if (!card) return;
+            document.getElementById('detail-img').src = card.image;
+            document.getElementById('detail-img').alt = card.title;
+            document.getElementById('detail-title').textContent = card.title;
+            document.getElementById('detail-info').textContent = card.completeInformation;
+        });
+    </script>
+</body>
+
+</html>

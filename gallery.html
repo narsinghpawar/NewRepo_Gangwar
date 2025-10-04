@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hazrat Multani Baba Gangwar - Details</title>
+    <script src="/js/assetLoader.js"> </script>
+
+    <style>
+        body {
+            background: #fdf6e3;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <div id="header"></div>
+    <div id="socialMediaIcons"></div>
+
+    <!-- Gallery -->
+    <div class="gallery-container">
+        <h2 class="gallery-title">Divine Moments</h2>
+        <div class="gallery">
+            <img src="Images/GangwarImages/09102008829.jpg" alt="Gallery Image 1" onclick="openModal(0)">
+            <img src="Images/GangwarImages/20181013_210702.jpg" alt="Gallery Image 2" onclick="openModal(1)">
+            <img src="Images/GangwarImages/20181013_210706.jpg" alt="Gallery Image 3" onclick="openModal(2)">
+            <img src="Images/GangwarImages/DSCF2296.JPG" alt="Gallery Image 4" onclick="openModal(3)">
+            <img src="Images/GangwarImages/IMG_0766.JPG" alt="Gallery Image 5" onclick="openModal(4)">
+            <img src="Images/GangwarImages/IMG_0767.JPG" alt="Gallery Image 6" onclick="openModal(5)">
+            <img src="Images/GangwarImages/IMG_1132.JPG" alt="Gallery Image 6" onclick="openModal(6)">
+            <img src="Images/GangwarImages/IMG_3123.JPG" alt="Gallery Image 6" onclick="openModal(7)">
+            <img src="Images/GangwarImages/IMG_3578.JPG" alt="Gallery Image 6" onclick="openModal(8)">
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <span class="prev" onclick="changeSlide(-1)">&#10094;</span>
+            <img id="modalImage" src="">
+            <span class="next" onclick="changeSlide(1)">&#10095;</span>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+    <!-- Background Sufi Music -->
+    <!-- <audio id="sufi-music" autoplay loop>
+        <source src="/music/StockTune-Echoes Beneath The Stars_1759082693.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio> -->
+    <script src="/js/loadHeaderFooter.js"></script>
+    <!-- <script src="js/music.js"></script> -->
+    <script>
+        const images = document.querySelectorAll('.gallery img');
+        const modal = document.getElementById('myModal');
+        const modalImage = document.getElementById('modalImage');
+        let currentIndex = 0;
+
+        function openModal(index) {
+            currentIndex = index;
+            modal.style.display = "block";
+            modalImage.src = images[currentIndex].src;
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        function changeSlide(direction) {
+            currentIndex += direction;
+            if (currentIndex < 0) {
+                currentIndex = images.length - 1;
+            } else if (currentIndex >= images.length) {
+                currentIndex = 0;
+            }
+            modalImage.src = images[currentIndex].src;
+        }
+
+        window.onclick = function (event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+    <!--Resource Loader-->
+    <input type="hidden" value="gallery" id="requestedPageName_gallery" />
+</body>
+
+</html>

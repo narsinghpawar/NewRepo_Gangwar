@@ -1,0 +1,239 @@
+/* ------------------- Top Header ------------------- */
+.top-header {
+    background: #004d40;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 20px;
+    font-size: 18px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    font-weight: bold;
+    font-family: 'MedievalSharp', cursive;
+}
+
+.top-header .location {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    /* decrease text size */
+}
+
+.top-header .location .material-icons {
+    font-size: 14px;
+    /* decrease icon size */
+}
+
+.top-header .india-pride {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.top-header .india-pride img {
+    width: 24px;
+    height: auto;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: #e0f2f1;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    font-family: 'MedievalSharp', cursive;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+}
+
+.logo img {
+    height: 130px;
+    border-radius: 50%;
+    transition: transform 0.3s;
+
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+.logo span {
+    font-size: 20px;
+    font-weight: 600;
+    color: #004d40;
+}
+
+.tagline {
+    font-size: 14px;
+    color: #004d40;
+    font-family: 'MedievalSharp', cursive;
+    margin-top: 2px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.tagline:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+    cursor: default;
+}
+
+/* ------------------- Material Dropdown ------------------- */
+.language-select select {
+    padding: 8px 12px;
+    padding-right: 30px;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 150px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"><path fill="%23004d40" d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+    font-family: 'MedievalSharp', cursive;
+}
+
+.language-select select:hover,
+.language-select select:focus {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* ------------------- Navbar ------------------- */
+.navbar {
+    background: #00796b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    font-family: 'MedievalSharp', cursive;
+
+}
+
+.navbar .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 19px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar .nav-links li a {
+    color: white;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s;
+    text-decoration: none;
+}
+
+.navbar .nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #c8e6c9;
+    left: 0;
+    bottom: -4px;
+    transition: width 0.3s;
+}
+
+.navbar .nav-links li a:hover {
+    color: #c8e6c9;
+}
+
+.navbar .nav-links li a:hover::after {
+    width: 100%;
+}
+
+.navbar .social-icons {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.navbar .social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #004d40;
+    font-size: 18px;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.navbar .social-icons a:hover {
+    transform: translateY(-3px) scale(1.1);
+}
+
+/* Brand hover colors */
+.navbar .social-icons a[href*="youtube"]:hover {
+    background: #FF0000;
+}
+
+.navbar .social-icons a[href*="facebook"]:hover {
+    background: #1877F2;
+}
+
+.navbar .social-icons a[href*="instagram"]:hover {
+    background: #E1306C;
+}
+
+/* Dropdown Base */
+.navbar .dropdown {
+    position: relative;
+}
+
+.navbar .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    /* below parent */
+    left: 0;
+    background: #f1f7f7;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    min-width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.navbar .dropdown-menu li {
+    padding: 8px 20px;
+}
+
+.navbar .dropdown-menu li a {
+    color: #333;
+    text-decoration: none;
+    display: block;
+
+}
+
+/* Show dropdown on hover */
+.navbar .dropdown:hover .dropdown-menu {
+    display: block;
+}

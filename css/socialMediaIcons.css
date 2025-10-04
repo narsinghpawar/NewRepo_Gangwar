@@ -1,0 +1,52 @@
+ /* Social Media Floating Bar */
+ .social-icons {
+     position: fixed;
+     top: 40%;
+     right: 0;
+     display: flex;
+     flex-direction: column;
+     background: #ffffff;
+     padding: 10px;
+     border-radius: 10px 0 0 10px;
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+     gap: 15px;
+     z-index: 1000;
+     transition: all 0.3s ease-in-out;
+ }
+
+ .social-icons a {
+     font-size: 22px;
+     color: #555;
+     background: #6b6969;
+     padding: 12px;
+     border-radius: 50%;
+     transition: all 0.3s ease;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+
+     border-radius: 50%;
+     background: #004d40;
+     color: white;
+     font-size: 18px;
+
+     text-decoration: none;
+ }
+
+ /* Hover Effects for Each Icon */
+ .social-icons a:hover {
+     transform: scale(1.1);
+     color: #fff;
+ }
+
+ .social-icons a[href*="youtube"]:hover {
+     background: #FF0000;
+ }
+
+ .social-icons a[href*="facebook"]:hover {
+     background: #1877F2;
+ }
+
+ .social-icons a[href*="instagram"]:hover {
+     background: #E1306C;
+ }

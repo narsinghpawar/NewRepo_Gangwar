@@ -1,0 +1,50 @@
+{
+  "pages": {
+    "home": {
+      "css": ["/css/cards.css", "/css/slider.css"],
+      "js": ["js/slider.js"]
+    },
+    "aboutus": {
+      "css": ["/css/content.css", "/css/content.css"],
+      "js": []
+    },
+    "ChishtiSilsila": {
+      "css": ["/css/sticknote.css", "/css/content.css"],
+      "js": []
+    },
+    "Contact": {
+      "css": ["/css/content.css"],
+      "js": []
+    },
+    "gallery": {
+      "css": ["/css/gallary.css"],
+      "js": []
+    },
+    "Reachus": {
+      "css": ["/css/sticknote.css", "/css/content.css"],
+      "js": []
+    },
+    "IntroductionToSufism": {
+      "css": ["/css/content.css"],
+      "js": []
+    },
+    "Mirzaaigrahan": {
+      "css": ["/css/sticknote.css", "/css/content.css"],
+      "js": []
+    },
+    "SufismSaints": {
+      "css": ["/css/content.css"],
+      "js": []
+    },
+    "common": {
+      "css": [
+        "https://fonts.googleapis.com/icon?family=Material+Icons",
+        "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css",
+        "/css/header.css",
+        "/css/footer.css",
+        "/css/socialMediaIcons.css"
+      ],
+      "js": ["js/loadHeaderFooter.js", "js/music.js"]
+    }
+  }
+}

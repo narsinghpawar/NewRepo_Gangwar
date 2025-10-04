@@ -1,0 +1,36 @@
+{
+  "cards": [
+    {
+      "id": 1,
+      "title": "Guru Dev-1",
+      "image": "/Images/GuruDev/1000434599.png",
+      "completeInformation": "This sacred text is displayed on a parchment scroll. You can style it for Hindu or Islamic manuscripts by adding authentic fonts, symbols, and decorative borders."
+    },
+    {
+      "id": 2,
+      "title": "Guru Dev-2",
+      "image": "/Images/GuruDev/1000434621.png",
+
+      "completeInformation": "Relax on peaceful beaches with sun, sand, and waves."
+    },
+    {
+      "id": 3,
+      "title": "Guru Dev-3",
+      "image": "/Images/GuruDev/1000434623.png",
+      "completeInformation": "Feel the vibrant city life with lights and activities."
+    },
+    {
+      "id": 4,
+      "title": "Guru Dev-4",
+      "image": "/Images/GuruDev/1000434624.png",
+
+      "completeInformation": "Explore the mysterious forest trails and lush greenery."
+    },
+    {
+      "id": 5,
+      "title": "Guru Dev-5",
+      "image": "/Images/GuruDev/Guru_1.png",
+      "completeInformation": "Peaceful lakeside moments for reflection and relaxation."
+    }
+  ]
+}

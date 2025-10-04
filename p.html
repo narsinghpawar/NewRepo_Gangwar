@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Photo Gallery</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 40px;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(120deg, #f0f0f0, #fafafa);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            text-align: center;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-6px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 370px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            transition: transform 0.4s ease;
+        }
+
+        /* 🎯 Fine-tuning per image for face alignment */
+        .gallery-item:nth-child(1) img {
+            object-position: center 25%;
+        }
+
+        .gallery-item:nth-child(2) img {
+            object-position: center 35%;
+        }
+
+        .gallery-item:nth-child(3) img {
+            object-position: center 20%;
+        }
+
+        .gallery-item:nth-child(4) img {
+            object-position: center 25%;
+        }
+
+        .gallery-item:nth-child(5) img {
+            object-position: center 35%;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Tooltip */
+        .tooltip {
+            position: absolute;
+            top: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #333;
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .tooltip::after {
+            content: "";
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 6px;
+            border-style: solid;
+            border-color: #333 transparent transparent transparent;
+        }
+
+        .gallery-item:hover .tooltip {
+            opacity: 1;
+        }
+
+        /* Sticky Note */
+        .note {
+            margin-top: 15px;
+            background: #fff8c6;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            text-align: left;
+            transform: scale(0.95);
+            opacity: 0;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .note::before {
+            content: "📌";
+            position: absolute;
+            top: -12px;
+            left: 12px;
+            font-size: 1.2rem;
+        }
+
+        .gallery-item:hover .note {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        /* Lightbox (Full View) */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .lightbox img {
+            max-width: 80%;
+            max-height: 80%;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+            animation: zoomIn 0.5s ease;
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.7);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Slider thumbnails inside lightbox */
+        .lightbox-thumbs {
+            position: absolute;
+            bottom: 40px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .lightbox-thumbs img {
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 6px;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: transform 0.3s, opacity 0.3s, border 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .lightbox-thumbs img:hover {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        .lightbox-thumbs img.active {
+            border: 2px solid #fff;
+            opacity: 1;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2rem;
+            color: #fff;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="gallery">
+        <div class="gallery-item" data-img="/Images/GuruDev/1000434599.png">
+            <img src="/Images/GuruDev/1000434599.png" alt="Image 1">
+            <div class="tooltip">Image Title 1</div>
+            <div class="note">This is the sticky note description for image 1. It appears below the photo.</div>
+        </div>
+
+        <div class="gallery-item" data-img="/Images/GuruDev/1000434621.png">
+            <img src="/Images/GuruDev/1000434621.png" alt="Image 2">
+            <div class="tooltip">Image Title 2</div>
+            <div class="note">Description about image 2. The sticky note style makes it feel creative and engaging.
+            </div>
+        </div>
+
+        <div class="gallery-item" data-img="/Images/GuruDev/1000434623.png">
+            <img src="/Images/GuruDev/1000434623.png" alt="Image 3">
+            <div class="tooltip">Image Title 3</div>
+            <div class="note">Description for image 3 goes here. Face properly aligned.</div>
+        </div>
+
+        <div class="gallery-item" data-img="/Images/GuruDev/1000434624.png">
+            <img src="/Images/GuruDev/1000434624.png" alt="Image 4">
+            <div class="tooltip">Image Title 4</div>
+            <div class="note">Description for image 4 goes here. Face centered in card.</div>
+        </div>
+
+        <div class="gallery-item" data-img="/Images/GuruDev/Guru_1.png">
+            <img src="/Images/GuruDev/Guru_1.png" alt="Image 5">
+            <div class="tooltip">Image Title 5</div>
+            <div class="note">Description for image 5 goes here. Portrait kept centered.</div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="close-btn" id="closeBtn">&times;</span>
+        <img id="lightboxImg" src="" alt="Large View">
+        <div class="lightbox-thumbs" id="thumbs"></div>
+    </div>
+
+    <script>
+        const galleryItems = document.querySelectorAll(".gallery-item");
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightboxImg");
+        const closeBtn = document.getElementById("closeBtn");
+        const thumbs = document.getElementById("thumbs");
+
+        let currentIndex = 0;
+        let images = [];
+
+        // Collect all large image URLs
+        galleryItems.forEach((item, index) => {
+            images.push(item.getAttribute("data-img"));
+            item.addEventListener("click", () => {
+                currentIndex = index;
+                openLightbox(images[currentIndex]);
+            });
+        });
+
+        function openLightbox(src) {
+            lightbox.classList.add("active");
+            lightboxImg.src = src;
+            renderThumbs();
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove("active");
+        }
+
+        function renderThumbs() {
+            thumbs.innerHTML = "";
+            images.forEach((src, index) => {
+                const thumb = document.createElement("img");
+                thumb.src = src;
+                if (index === currentIndex) {
+                    thumb.classList.add("active");
+                }
+                thumb.addEventListener("click", () => {
+                    currentIndex = index;
+                    lightboxImg.src = src;
+                    updateActiveThumb();
+                });
+                thumbs.appendChild(thumb);
+            });
+        }
+
+        function updateActiveThumb() {
+            const thumbImgs = thumbs.querySelectorAll("img");
+            thumbImgs.forEach((img, i) => {
+                img.classList.toggle("active", i === currentIndex);
+            });
+        }
+
+        closeBtn.addEventListener("click", closeLightbox);
+    </script>
+
+</body>
+
+</html>
